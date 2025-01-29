@@ -1,6 +1,6 @@
 # 😼 Expose your Github data through a RESTful API
 
-Devfolios API allows you to easily retrieve detailed GitHub profile information through a simple endpoint (`https://api.devfolios.xyz/user/:your_username`). It provides essential data such as profile picture, username, repositories, stars, followers, and the 4 most popular repositories. This is ideal for showcasing GitHub stats, personal portfolios, or integrating user profiles into your app or website.
+Devfolios API allows you to easily retrieve detailed GitHub profile information through a simple endpoint `(https://api.devfolios.xyz/user/:your_username)`. It provides essential data such as profile picture, username, repositories, stars, followers, and the 4 most popular repositories. This is ideal for showcasing GitHub stats, personal portfolios, or integrating user profiles into your app or website.
 
 No need to deploy anything yourself – just make requests to the API endpoint. If you prefer, you can self-host the API with minimal setup.
 
