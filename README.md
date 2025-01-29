@@ -6,10 +6,6 @@ No need to deploy anything yourself – just make requests to the API endpoint. 
 
 Whether you're building a portfolio, a GitHub stats dashboard, or integrating profiles into your app, Devfolios API makes it easy to display relevant GitHub data in a stylish, customizable way.
 
-## Table of Contents
-
-- [API Docs](#api-docs)
-
 ## API Docs
 
 #### Getting a user's data
