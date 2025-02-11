@@ -8,8 +8,12 @@
   ],
   "routes": [
     {
+      "src": "/profile/(.*)",
+      "dest": "index.js"
+    },
+    {
       "src": "/(.*)",
-      "dest": "src/index.js"
+      "dest": "index.js"
     }
   ]
 }
