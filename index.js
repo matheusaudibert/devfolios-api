@@ -16,11 +16,11 @@ app.get("/profile/:username", async (req, res) => {
   try {
     const data = await fetchGitHubData(username);
     if (!data) {
-      return res.status(404).json({ error: "Usuário não encontrado" });
+      return res.status(404).json({ error: "User not found" });
     }
     res.json(data);
   } catch (error) {
-    res.status(500).json({ error: "Erro ao buscar dados do GitHub" });
+    res.status(500).json({ error: "Error fetching data" });
   }
 });
 
