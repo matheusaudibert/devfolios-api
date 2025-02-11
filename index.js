@@ -1,10 +1,11 @@
-require('dotenv').config();
+require("dotenv").config();
 const express = require("express");
 const app = express();
+const path = require("path"); // Adicione esta linha
 const fetchGitHubData = require("./src/github");
 
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  res.sendFile(path.join(__dirname, "public/pages/index.html"));
 });
 
 app.get("/profile/:username", async (req, res) => {

@@ -8,6 +8,7 @@ async function fetchGitHubData(username) {
       Authorization: `token ${token}`,
     };
 
+    // Buscar dados do usuário
     const userResponse = await fetch(
       `https://api.github.com/users/${username}`,
       { headers }
@@ -18,6 +19,7 @@ async function fetchGitHubData(username) {
 
     const userName = userData.name || userData.login;
 
+    // Buscar repositórios do usuário
     let reposData = [];
     let page = 1;
     while (true) {
@@ -34,7 +36,11 @@ async function fetchGitHubData(username) {
       page++;
     }
 
-    const repositories = reposData.map((repo) => {
+    // Filtrar apenas repositórios originais (não forks)
+    const originalRepos = reposData.filter((repo) => !repo.fork);
+
+    // Mapear dados dos repositórios
+    const repositories = originalRepos.map((repo) => {
       return {
         name: repo.name,
         langs: repo.language || "No code",
@@ -45,10 +51,12 @@ async function fetchGitHubData(username) {
       };
     });
 
+    // Selecionar os 4 repositórios mais populares
     const topRepos = repositories.sort((a, b) => b.stars - a.stars).slice(0, 4);
     const totalStars = topRepos.reduce((sum, repo) => sum + repo.stars, 0);
     const totalForks = topRepos.reduce((sum, repo) => sum + repo.forks, 0);
 
+    // Informações do usuário
     const userInfo = {
       url: userData.html_url,
       name: userName,
@@ -76,5 +84,4 @@ async function fetchGitHubData(username) {
   }
 }
 
-// Exportar a função para uso em outros arquivos
 module.exports = fetchGitHubData;
