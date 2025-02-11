@@ -4,16 +4,13 @@ const app = express();
 const path = require("path");
 const fetchGitHubData = require("./src/github");
 
-// Configurar arquivos estáticos
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/styles", express.static(path.join(__dirname, "public/styles")));
 
-// Rota principal - serve o index.html
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public/pages/index.html"));
 });
 
-// Rota da API
 app.get("/profile/:username", async (req, res) => {
   const username = req.params.username;
   try {
@@ -27,7 +24,6 @@ app.get("/profile/:username", async (req, res) => {
   }
 });
 
-// Para produção, use a porta fornecida pelo ambiente ou 3000 como fallback
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
