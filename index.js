@@ -5,7 +5,8 @@ const path = require("path");
 const fetchGitHubData = require("./src/github");
 
 // Configurar arquivos estáticos
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "public")));
+app.use("/styles", express.static(path.join(__dirname, "public/styles")));
 
 // Rota principal - serve o index.html
 app.get("/", (req, res) => {
