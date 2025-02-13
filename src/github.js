@@ -38,6 +38,7 @@ async function fetchGitHubData(username) {
 
     const repositories = originalRepos.map((repo) => {
       return {
+        url: repo.html_url,
         name: repo.name,
         langs: repo.language || "No code",
         desc: repo.description || "",
